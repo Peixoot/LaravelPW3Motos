@@ -1,14 +1,15 @@
-# Simple Laravel 12 CRUD Application Tutorial
-Learn how to build a simple Laravel 12 CRUD application
+# CRUD LARAVEL 12 
 
-> The complete tutorial step by step guide is available on my blog. [Laravel 12 CRUD Application](https://www.allphptricks.com/simple-laravel-12-crud-application-tutorial/)
+
+> O tutorial completo ta no blog do indiano. [Laravel 12 CRUD Application](https://www.allphptricks.com/simple-laravel-12-crud-application-tutorial/)
 
 ## Blog
 https://www.allphptricks.com/
 
 
-## Installation 
-Make sure that you have setup the environment properly. You will need minimum PHP 8.2, MySQL/MariaDB, and composer.
+## Instalação
+Se certifique que voce já tenha um setup pronto, com PHP 8.2, MySQL/MariaDB, e composer.
+passo a passo do cara VVVV
 
 1. Download the project (or clone using GIT)
 2. Copy `.env.example` into `.env` and configure your database credentials
@@ -17,4 +18,4 @@ Make sure that you have setup the environment properly. You will need minimum PH
 5. Set the application key by running `php artisan key:generate --ansi`
 6. Run migrations `php artisan migrate`
 7. Start local server by executing `php artisan serve`
-8. Visit here [http://127.0.0.1:8000/products](http://127.0.0.1:8000/products) to test the application
+8. Visit here [http://127.0.0.1:8000/products](http://127.0.0.1:8000/products) [http://127.0.0.1:8000/motos](http://127.0.0.1:8000/motos) to test the application
