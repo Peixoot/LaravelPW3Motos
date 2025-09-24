@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Moto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MotoController extends Controller
 {
@@ -23,12 +24,19 @@ class MotoController extends Controller
         $request->validate([
             'marca' => 'required',
             'modelo' => 'required',
-            'ano' => 'required',
-            'cor' => 'required',
-            'preco' => 'required|numeric',
+            'motor' => 'required',
+            'datacad' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Moto::create($request->all());
+        $data = $request->all();
+
+        // Upload da foto (se enviada)
+        if ($request->hasFile('foto')) {
+            $data['foto'] = $request->file('foto')->store('motos', 'public');
+        }
+
+        Moto::create($data);
 
         return redirect()->route('motos.index')
                         ->with('success', 'Moto cadastrada com sucesso!');
@@ -49,12 +57,22 @@ class MotoController extends Controller
         $request->validate([
             'marca' => 'required',
             'modelo' => 'required',
-            'ano' => 'required',
-            'cor' => 'required',
-            'preco' => 'required|numeric',
+            'motor' => 'required',
+            'datacad' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $moto->update($request->all());
+        $data = $request->all();
+
+        // Substituir a foto antiga se enviar nova
+        if ($request->hasFile('foto')) {
+            if ($moto->foto && Storage::disk('public')->exists($moto->foto)) {
+                Storage::disk('public')->delete($moto->foto);
+            }
+            $data['foto'] = $request->file('foto')->store('motos', 'public');
+        }
+
+        $moto->update($data);
 
         return redirect()->route('motos.index')
                         ->with('success', 'Moto atualizada com sucesso!');
@@ -62,10 +80,14 @@ class MotoController extends Controller
 
     public function destroy(Moto $moto)
     {
+        // Excluir foto associada (se existir)
+        if ($moto->foto && Storage::disk('public')->exists($moto->foto)) {
+            Storage::disk('public')->delete($moto->foto);
+        }
+
         $moto->delete();
 
         return redirect()->route('motos.index')
                         ->with('success', 'Moto removida com sucesso!');
     }
 }
-

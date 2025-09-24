@@ -9,13 +9,18 @@
             <div class="card-body">
                 <p><strong>Marca:</strong> {{ $moto->marca }}</p>
                 <p><strong>Modelo:</strong> {{ $moto->modelo }}</p>
-                <p><strong>Ano:</strong> {{ $moto->ano }}</p>
-                <p><strong>Cor:</strong> {{ $moto->cor }}</p>
-                <p><strong>Preço:</strong> R$ {{ number_format($moto->preco, 2, ',', '.') }}</p>
+                <p><strong>Motor:</strong> {{ $moto->motor }}</p>
+                <p><strong>Data de Cadastro:</strong> {{ \Carbon\Carbon::parse($moto->datacad)->format('d/m/Y') }}</p>
+
+                @if($moto->foto)
+                    <p><strong>Foto:</strong></p>
+                    <img src="{{ asset('storage/' . $moto->foto) }}" alt="Foto da moto" width="250" class="img-fluid rounded">
+                @endif
             </div>
         </div>
 
         <a class="btn btn-secondary mt-3" href="{{ route('motos.index') }}">Voltar</a>
     </div>
     @endsection
+
 </div>

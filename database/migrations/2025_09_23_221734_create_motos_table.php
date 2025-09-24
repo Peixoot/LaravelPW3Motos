@@ -13,16 +13,13 @@ return new class extends Migration
     {
         Schema::create('motos', function (Blueprint $table) {
             $table->id();
-            $table->string('marca');
             $table->string('modelo');
-            $table->string('ano');
-            $table->string('cor');
-            $table->decimal('preco', 10, 2);
+            $table->string('marca');
+            $table->string('motor');
+            $table->date('datacad'); 
+            $table->string('foto')->nullable(); // foto pode ser nula no cadastro
             $table->timestamps();
-<<<<<<< HEAD
         });
-=======
->>>>>>> c58c9ff3eaf53189fa56924c4fc102fde39f6288
     }
 
     /**
@@ -32,8 +29,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('motos');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> c58c9ff3eaf53189fa56924c4fc102fde39f6288

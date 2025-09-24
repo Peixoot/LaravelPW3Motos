@@ -9,11 +9,6 @@ class Moto extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'marca',
-        'modelo',
-        'ano',
-        'cor',
-        'preco',
-    ];
+    protected $fillable = ['marca', 'modelo', 'motor', 'datacad', 'foto'];
+
 }
