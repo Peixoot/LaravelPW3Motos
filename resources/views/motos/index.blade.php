@@ -37,7 +37,7 @@
                             <td>{{ \Carbon\Carbon::parse($moto->datacad)->format('d/m/Y') }}</td>
                             <td>
                                 @if($moto->foto)
-                                    <img src="{{ asset('storage/' . $moto->foto) }}" alt="Foto da moto" width="80">
+                            <img src="{{ asset('storage/' . $moto->foto) }}" alt="Foto da moto" width="100">
                                 @else
                                     -
                                 @endif
