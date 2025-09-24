@@ -19,7 +19,10 @@ return new class extends Migration
             $table->string('cor');
             $table->decimal('preco', 10, 2);
             $table->timestamps();
+<<<<<<< HEAD
         });
+=======
+>>>>>>> c58c9ff3eaf53189fa56924c4fc102fde39f6288
     }
 
     /**
@@ -29,4 +32,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('motos');
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> c58c9ff3eaf53189fa56924c4fc102fde39f6288

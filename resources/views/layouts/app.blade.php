@@ -10,6 +10,7 @@
 </head>
 <body>   
 
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="{{ route('home') }}">MeuSite</a>
@@ -56,6 +57,8 @@
 </nav>
 
 
+=======
+>>>>>>> c58c9ff3eaf53189fa56924c4fc102fde39f6288
     <div class="container">
             @yield('content')
             <div class="row justify-content-center text-center mt-3">
